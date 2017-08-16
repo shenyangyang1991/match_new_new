@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="author" content="highfaner.com">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <title>中国流行舞公开赛发布会</title>
+    <script src="./js/auto.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/news.css">
+  </head>
+  <body>
+    <div class="container-main">
+      <header class="banner-news ball-scale" data-src="./img/header.jpg" data-w="100%" data-h="4.2rem">
+        <div></div>
+      </header>
+
+      <div class="form-news">
+        <h2>报名信息</h2>
+        <p class="tip">请确保信息真实性，方便我们与您取得联系</p>
+        <div class="input-news">
+          <div class="input-group">
+            <label for="username">姓名</label>
+            <input type="text" name="username" placeholder="真实姓名" value="">
+          </div>
+          <div class="input-group">
+            <label for="mobile">手机号</label>
+            <input type="text" name="mobile" placeholder="11位手机号码" value="">
+          </div>
+          <div class="input-group">
+            <label for="tel">网上联系方式</label>
+            <div class="radio-group">
+              <label class="or" data-index="0"><input type="radio" name="tel" value="::Q"> <span>QQ</span></label>&emsp;
+              <label class="or" data-index="1"><input type="radio" name="tel" value="::W"> <span>微信</span></label>
+            </div>
+          </div>
+          <div class="internal hide">
+            <input type="text" name="qqOrWx" value="">
+          </div>
+          <!-- <div class="input-group">
+            <label for="comp">公司</label>
+            <input type="text" name="comp" placeholder="公司简称" value="">
+          </div>
+          <div class="input-group">
+            <label for="work">职位</label>
+            <input type="text" name="work" placeholder="工作岗位" value="">
+          </div> -->
+        </div>
+
+        <p class="info">准备好和我们一起见证CPDC的开幕吧！</p>
+
+        <div class="submit">
+          立即提交
+        </div>
+      </div>
+
+      <footer>
+        Copyright 2017 嗨范儿 All Rights Reserved.
+      </footer>
+    </div>
+    <script src="./js/zepto.js" charset="utf-8"></script>
+    <script src="./js/common.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      (function($, w){
+        function resetTel(inputc) {
+          inputc.val('');
+          inputc.parent().show();
+        }
+        $('.or').on('change', function(event){
+          // event.preventDefault();
+          var _qw = '';
+          var inputc = $('.internal input');
+          if ($(this).data('index')) {
+            resetTel(inputc);
+            inputc.attr('placeholder', '真实微信号码');
+          } else {
+            resetTel(inputc);
+            inputc.attr('placeholder', '真实QQ号码')
+          }
+        });
+
+        var safeLock = false, _qw = '';
+        function openLock() {
+          safeLock = false;
+        }
+        $('.submit').on('click', function(event) {
+          event.preventDefault();
+          if (safeLock) return;
+          safeLock = true;
+
+          var _mb = $('[name=mobile]').val(),
+            _us = $('[name=username]').val(),
+            _cp = '无',
+            _wk = '无',
+            _sl = '';
+
+          _qw = $('[name=qqOrWx]').val();
+
+          $('[name=tel]').each(function(k,v){
+            if (v.checked) {
+              _sl = $(v).val();
+            }
+          });
+
+          //validate
+          if (!($.utils.validate.mobile(_mb))) {
+            alert($.utils.message.mobile);
+            openLock();
+            return;
+          }
+
+          var arr = [_us, _qw];
+          // , '公司', '职位'
+          // , _cp, _wk
+          var arrMsg = ['姓名', '网上联系'];
+          for (var i = 0; i < 2; i ++) {
+            if (!($.utils.validate.required(arr[i]))) {
+              alert($.utils.message.required(arrMsg[i]));
+              openLock();
+              return;
+            }
+          }
+          _qw += _sl;
+
+          $.utils.post({
+            url: '../php1/index.php',
+            data: {url: 'fbh', company: _cp, phone: _mb, position: _wk, user_name: _us, wx_no: _qw},
+            success: function(data){
+              if (data && data.code == "1") {
+                location.href = 'news_success.html';
+              } else {
+                alert(data.msg);
+                openLock();
+              }
+            }
+          });
+        });
+      })(Zepto, window)
+    </script>
+  </body>
+</html>

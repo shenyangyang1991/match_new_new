@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="author" content="highfaner.com">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <title>中国流行舞公开赛</title>
+    <script src="./js/auto.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/ticket.css">
+  </head>
+  <body>
+    <div class="container-main">
+      <div class="block-ticket" data-price="1">
+        <div class="context-block">
+          <p class="title">个人赛报名费</p>
+          <p class="price">¥199.00</p>
+        </div>
+        <div class="button-block">
+          购票
+        </div>
+      </div>
+
+      <div class="block-ticket" data-price="2">
+        <div class="context-block">
+          <p class="title">齐舞赛报名费</p>
+          <p class="price">¥399.00</p>
+        </div>
+        <div class="button-block">
+          购票
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./js/zepto.js" charset="utf-8"></script>
+  <script src="./js/common.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    (function($, w) {
+      var city = $.utils.queryUrl(location.search, 'city');
+      $('.block-ticket').on('click', function(event) {
+        event.preventDefault();
+        var t = $(this).data('price');
+        location.href = 'signup.html?tp=' + t + '&ct=' + city;
+      });
+    })(Zepto, window);
+  </script>
+</html>

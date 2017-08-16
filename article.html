@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="author" content="highfaner.com">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <title>嗨范儿APP</title>
+    <!-- <script src="./js/auto.js" charset="utf-8"></script> -->
+    <!-- <link rel="stylesheet" href="./css/common.css"> -->
+    <!-- <link rel="stylesheet" href="./css/article.css"> -->
+  </head>
+  <body>
+    <!-- <header>
+      <span>嗨范儿APP</span>
+    </header> -->
+    <!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" allowtransparency="yes" scrolling="auto"></iframe> -->
+    <!-- <footer> -->
+      <!-- <div class="logo">
+        <img src="./img/hfr-logo.png" alt="">
+      </div>
+      <div class="ctxt">
+        <div class="h">
+          嗨范儿·不止教你舞蹈
+        </div>
+        <div class="d">
+          年轻人用了之后都变潮了！
+        </div>
+      </div>
+      <div class="link">
+        打开看看
+      </div> -->
+    <!-- </footer> -->
+    <script src="./js/zepto.js" charset="utf-8"></script>
+    <script src="./js/common.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      (function(w, $){
+        // var ftr =$.querySelector('footer').clientHeight,
+        //   th = $.documentElement.clientHeight || $.body.clientHeight;
+        // $.querySelector('iframe').style.height = (th) + 'px';
+        var linkt = Zepto.utils.queryUrl(location.search, 'linkTo');
+        if (!linkt) {
+          linkt = 'http://www.highfaner.com';
+        }
+        location.href = decodeURI(linkt);
+      })(window, document);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="author" content="highfaner.com">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <title>中国流行舞公开赛</title>
+    <script src="./js/auto.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/signup.css">
+  </head>
+  <body>
+    <div class="container-main">
+      <header class="banner-sign">
+        <div class="wrap">
+          <div class="title">
+            CPDC 中国流行舞公开赛
+          </div>
+          <div id="city" class="title">
+
+          </div>
+          <p id="tinfo" class="self"></p>
+          <div id="price" class="price">
+
+          </div>
+        </div>
+      </header>
+      <div class="form-sign">
+        <h2>报名信息</h2>
+        <div class="input-sign">
+          <div class="input-group">
+            <label for="username">姓名</label>
+            <input type="text" name="username" placeholder="真实姓名" value="">
+          </div>
+          <div class="input-group">
+            <label for="ids">身份证</label>
+            <input type="text" name="ids" placeholder="真实身份证号码" value="">
+          </div>
+          <div class="input-group">
+            <label for="age">年龄</label>
+            <input type="text" name="age" placeholder="真实年龄" value="">
+          </div>
+          <div class="input-group">
+            <label for="sex">性别</label>
+            <div class="radio-group">
+              <label class="sex" data-index="0"><input type="radio" name="sex" data-val="男"> <span>男</span></label>&emsp;
+              <label class="sex" data-index="1"><input type="radio" name="sex" data-val="女"> <span>女</span></label>
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="mobile">手机号</label>
+            <input type="text" name="mobile" placeholder="11位手机号码" value="">
+          </div>
+          <div class="input-group">
+            <label for="code">验证码</label>
+            <input id="code" type="text" name="code" placeholder="6位短信验证码" value="">
+            <div class="code-btn">
+              获取短信验证码
+            </div>
+          </div>
+          <!-- <div class="internal hide">
+            <input type="text" name="qqOrWx" value="">
+          </div> -->
+          <!-- <div class="input-group">
+            <label for="comp">公司</label>
+            <input type="text" name="comp" placeholder="公司简称" value="">
+          </div>
+          <div class="input-group">
+            <label for="work">职位</label>
+            <input type="text" name="work" placeholder="工作岗位" value="">
+          </div> -->
+        </div>
+
+      </div>
+
+      <div class="form-sign">
+        <h2>舞蹈类型</h2>
+        <ul>
+
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="float hide">
+      <div class="wraps">
+        <div class="code-group">
+          <div class="code-input">
+            <input type="text" name="" placeholder="图片验证码" value="">
+          </div>
+          <div class="code-btn">
+            <img id="" src="" alt="">
+          </div>
+        </div>
+        <div class="btn-link">
+          <div class="canle">
+            取消
+          </div>
+          <div class="ok">
+            确定
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="loading hide">
+      <span>
+        您的信息正在提交...
+      </span>
+    </div>
+    <footer>
+      <div id="total" class="prices">
+
+      </div>
+      <div class="sign">
+        立即付费
+      </div>
+    </footer>
+  </body>
+  <script src="./js/zepto.js" charset="utf-8"></script>
+  <script src="./js/common.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    (function($, w) {
+      var citys = $.utils.queryUrl(location.search, 'ct');
+      var types = $.utils.queryUrl(location.search, 'tp');
+      var arrcity = {
+        tj: '天津'
+      }
+      var dances = [['BREAKING', 'SHUFFLE', 'FREESTYLE'], ['齐舞']];
+      if (!citys || !types) {
+        alert('非法打开页面！');
+        return;
+      }
+      switch (types) {
+        case '1':
+          $('#price').text('¥199.00');
+          $('#total').text('合计：¥199.00');
+          $('#tinfo').text('个人赛报名·1张');
+          render(0);
+          break;
+        case '2':
+          $('#price').text('¥399.00');
+          $('#total').text('合计：¥399.00');
+          $('#tinfo').text('齐舞赛报名·1张');
+          render(1);
+          break;
+      }
+      $('#city').text(arrcity[citys] + '赛区');
+
+      function render(i) {
+        var datas = dances[i];
+        for(var j = 0; j < datas.length; j ++) {
+          var ele = j == 0 ? '<li class="active">'+ datas[j] +'</li>' : '<li>'+ datas[j] +'</li>';
+          $('.form-sign ul').append(ele);
+        }
+      }
+
+      var actI = 0;
+      $('.form-sign li').on('click', function(event) {
+        event.preventDefault();
+        if ($(this).index() == actI) return;
+        $('.form-sign li').eq(actI).removeClass('active');
+        $(this).addClass('active');
+        actI = $(this).index();
+      });
+      var safeLock = false;
+      function openLock() {
+        safeLock = false;
+      }
+      $('.sign').on('click', function(event) {
+        event.preventDefault();
+        if (safeLock) return;
+        safeLock = true;
+        var _us = $('[name=username]').val(),
+          _mb = $('[name=mobile]').val(),
+          _age = $('[name=age]').val(),
+          _code = $('#code').val(),
+          _ids = $('[name=ids]').val(),
+          _sex = '',
+          _ct = arrcity[citys],
+          _ids = '',
+          _mn = '',
+          _mt = types;
+        _mn = $('.form-sign ul li.active').text();
+        $('[name=sex]').each(function(k, v) {
+          if (v.checked) {
+            _sex =$(v).data('val');
+          }
+        });
+
+        var arrKl = [_us, _age, _ids, _code, _sex];
+        var arrMsg = ['姓名', '年龄', '身份证', '短信验证码', '性别'];
+        for (var i = 0; i < 5; i ++) {
+          if(!($.utils.validate.required(arrKl[i]))){
+            alert($.utils.message.required(arrMsg[i]));
+            openLock();
+            return;
+          }
+        }
+
+        if (!($.utils.validate.mobile(_mb))) {
+          alert($.utils.message.mobile);
+          openLock();
+          return;
+        }
+
+
+        // $.utils.validate.required();
+      });
+      $('.canle').on('click', function(event) {
+        event.preventDefault();
+        $('.float').hide();
+      });
+      $('.ok').on('click', function(event) {
+        event.preventDefault();
+        $('.float').hide();
+      });
+
+      var codeLock = false;
+      function openCodeLock() {
+        codeLock = true;
+      }
+      $('.code-btn').on('click', function(event) {
+        // event.preventDefault();
+        $('.float').show();
+        //TO-DO
+      });
+    })(Zepto, window);
+  </script>
+</html>

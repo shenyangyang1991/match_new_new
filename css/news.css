@@ -1,0 +1,123 @@
+input {
+  box-sizing: border-box;
+}
+
+body {
+  background: #f6f6f6;
+}
+
+.container-main {
+  overflow: hidden;
+}
+
+.banner-news {
+  position: relative;
+  margin: .2rem;
+  height: 4.2rem;
+  border-radius: 5px;
+  background: #d8d8d8;
+  overflow: hidden;
+}
+
+.form-news {
+  padding: .2rem;
+  background: #fff;
+}
+
+.form-news h2 {
+  padding: 0 0 .1rem;
+  font-size: .4rem;
+  font-weight: 400;
+}
+
+.form-news .tip {
+  font-size: .2rem;
+  color: #E32121;
+}
+
+.input-news {
+  padding: .2rem 0 0;
+}
+
+.input-news .input-group {
+  height: .8rem;
+  padding: .1rem 0;
+  line-height: .8rem;
+  overflow: hidden;
+}
+
+.input-group label {
+  float: left;
+  width: 30%;
+  height: .8rem;
+  font-size: .28rem;
+}
+
+.input-group input[type=text] {
+  float: right;
+  width: 70%;
+  height: .8rem;
+  padding-left: .2rem;
+  border: none;
+  border-radius: 5px;
+  background: #eaeaea;
+}
+
+.internal {
+  height: .8rem;
+  padding: 0 0 .2rem;
+  overflow: hidden;
+}
+
+.internal input {
+  float: right;
+  width: 70%;
+  height: .8rem;
+  padding-left: .2rem;
+  border: none;
+  border-radius: 5px;
+  background: #eaeaea;
+}
+
+.input-group .radio-group {
+  float: right;
+  width: 70%;
+  height: .8rem;
+  line-height: .8rem;
+}
+
+.info {
+  padding: 1.2rem 0 .2rem;
+  font-size: .3rem;
+  color: #12dbd1;
+  text-align: center;
+}
+
+.radio-group span {
+  position: relative;
+  top: 2px;
+  font-size: .28rem;
+}
+
+.radio-group input {
+  width: .3rem;
+  height: .3rem;
+  vertical-align: middle;
+}
+
+.submit {
+  height: 1rem;
+  font-size: .4rem;
+  line-height: 1rem;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  background: #12dbd1;
+}
+
+footer {
+  padding: .2rem;
+  font-size: .16rem;
+  color: #a8a8a8;
+  text-align: center;
+}

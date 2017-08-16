@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="author" content="highfaner.com">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <title>中国流行舞公开赛</title>
+    <script src="./js/auto.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/details.css">
+  </head>
+  <body>
+    <div class="container-main">
+      <header id="citys" class="banner-tj ball-scale-aysnc" data-src="" data-w="100%" data-h="13.19rem">
+        <div></div>
+      </header>
+      <div class="info-details">
+        <h2>报名时间 <span class="strong">(进行中)</span></h2>
+        <p class="d1"><span id="begin" class="hero"></span> &emsp; 至 &emsp; <span id="end" class="hero"></span></p>
+        <h2>比赛时间</h2>
+        <p class="d1"><span id="start" class="hero"></span> &emsp; 至 &emsp; <span id="last" class="hero"></span></p>
+        <h2>主办单位</h2>
+        <p class="d1"><span id="orgs" class="hero"></span></p>
+      </div>
+
+      <h2 style="padding: .3rem .2rem .1rem;">活动介绍</h2>
+      <p id="act" class="d1" style="padding: .2rem;color: #666;">
+
+      </p>
+    </div>
+
+    <footer>
+      立即报名
+    </footer>
+    <script src="./js/zepto.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      $.callback = function(fn) {
+        var city = $.utils.queryUrl(location.search, 'city');
+        if (city) {
+          $.utils.post({
+            url: './datajson/' + city + '.json',
+            success: function (data) {
+              // console.log(data);
+              if (data && data.name) {
+                $('#citys').data('src', './img/d' + data.city + '.jpg');
+                $('#begin').text(data.begin);
+                $('#end').text(data.end);
+                $('#start').text(data.start);
+                $('#last').text(data.last);
+                $('#orgs').text(data.orgs);
+                $('#act').text(data.act);
+              } else {
+
+              }
+
+              fn();
+            }
+          })
+        } else {
+          alert('非法打开页面！请打开正确报名渠道！');
+          return;
+        }
+      }
+    </script>
+    <script src="./js/common.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      (function($, w) {
+        $('footer').on('click', function(event) {
+          event.preventDefault();
+          location.href = 'ticket.html?city=tj';
+        });
+      })(Zepto, window);
+    </script>
+  </body>
+</html>

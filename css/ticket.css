@@ -1,0 +1,42 @@
+body {
+  background: #f6f6f6;
+}
+.container-main {
+  padding: .2rem;
+
+}
+
+.container-main .block-ticket {
+  margin-top: .2rem;
+  height: 2.25rem;
+  background: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.container-main .context-block {
+  float: left;
+  padding-top: .6rem;
+  padding-left: .32rem;
+}
+
+.container-main .title {
+  font-size: .32rem;
+}
+
+.container-main .price {
+  padding: .05rem 0;
+  font-size: .4rem;
+  color: #12dbd1;
+}
+
+.container-main .button-block {
+  float: right;
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: .4rem;
+  line-height: 2.25rem;
+  text-align: center;
+  color: #fff;
+  background: #12dbd1;
+}

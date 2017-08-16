@@ -1,0 +1,293 @@
+body {
+  background: #f6f6f6;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 4.2rem;
+  background: #d8d8d8;
+}
+
+.tab-main {
+  position: relative;
+  width: 100%;
+  height: 1.1rem;
+  background: #fff;
+  overflow: hidden;
+}
+
+.tab-main .tab-item {
+  float: left;
+  width: 33.3%;
+  height: 1.04rem;
+  font-size: .32rem;
+  color: #666;
+  line-height: 1.04rem;
+  text-align: center;
+}
+
+.tab-main .tab-border {
+  position: absolute;
+  z-index: 9;
+  left: 0; bottom: 0;
+  width: 33.3%;
+  height: .06rem;
+  background: #12d9cf;
+}
+
+.container-match {
+  padding: .2rem;
+}
+.container-match ul {
+  /*overflow: hidden;*/
+}
+.container-match ul li {
+  position: relative;
+  height: 2.36rem;
+}
+
+.container-match .cert {
+  position: absolute;
+  top: -4px; right: -4px;
+  z-index: 9;
+  width: 1.5rem;
+  height: .64rem;
+  font-size: .2rem;
+  color: #fff;
+  line-height: .64rem;
+  text-align: center;
+  background: #ff567a;
+  border-radius: 5px;
+}
+
+.container-match .img-match {
+  position: absolute;
+  top: 0; right: 0;
+  width: 100%;
+  height: 2.36rem;
+  border-radius: 5px;
+  background: #48e3dc;
+}
+
+.container-match .name {
+  position: absolute;
+  bottom: .3rem; left: .4rem;
+  z-index: 10;
+  font-size: .32rem;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.container-match ul li {
+  margin-bottom: .2rem;
+}
+
+.container-match ul li:last-child {
+  margin-bottom: 0;
+}
+
+.container-welfare {
+  padding: .2rem;
+}
+
+.container-welfare .careful {
+  font-size: .28rem;
+  color: #E32121;
+}
+
+.container-welfare .block-welfare {
+  margin-top: .2rem;
+  height: 2.25rem;
+  background: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.container-welfare .context-block {
+  float: left;
+  padding-top: .6rem;
+  padding-left: .32rem;
+}
+
+.container-welfare .title {
+  font-size: .32rem;
+}
+
+.container-welfare .price {
+  padding: .05rem 0;
+  font-size: .4rem;
+  color: #12dbd1;
+}
+
+.container-welfare .button-block {
+  float: right;
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: .4rem;
+  line-height: 2.25rem;
+  text-align: center;
+  color: #fff;
+  background: #12dbd1;
+}
+
+.container-welfare .txt {
+  padding: .2rem 0;
+  font-size: .24rem;
+}
+
+.container-welfare .img-block {
+  position: relative;
+  float: right;
+  width: 2.25rem;
+  height: 2.25rem;
+  background: #12dbd1;
+}
+
+.container-welfare .btn-link {
+  display: block;
+  height: .84rem;
+  font-size: .34rem;
+  color: #12dbd1;
+  line-height: .84rem;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid #12dbd1;
+  border-radius: 5px;
+}
+
+.container-profile {
+    padding: .2rem;
+}
+
+.container-profile h2 {
+  margin: .1rem 0;
+  font-size: .38rem;
+  font-weight: 600;
+}
+
+.container-profile .desc {
+  font-size: .30rem;
+
+}
+
+.container-profile .banner-match {
+  position: relative;
+  height: 12.62rem;
+  margin: .2rem 0;
+  background: #d8d8d8;
+}
+.container-profile .title {
+  font-size: .38rem;
+  font-weight: 600;
+  margin: .3rem 0 .1rem;
+}
+
+.container-profile .self-title {
+  width: 2.5rem;
+  height: .6rem;
+  padding-left: .2rem;
+  margin-bottom: .2rem;
+  background: #12dbd1;
+  font-size: .30rem;
+  line-height: .6rem;
+  /*text-align: center;*/
+  color: #fff;
+  border-radius: 5px;
+}
+
+.container-profile .txt {
+  padding: .06rem 0;
+  font-size: .28rem;
+}
+
+.container-profile .flag {
+  padding: .02rem .2rem;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.container-profile .view-profile {
+  padding: 1rem 0;
+  margin: .2rem 0;
+  text-align: center;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.container-profile .h {
+  font-size: .34rem;
+  line-height: 2;
+}
+.container-profile .h-price {
+  font-size: .4rem;
+  color: #12dbd1;
+}
+
+.container-profile .to {
+  padding-top: .4rem;
+  font-size: .36rem;
+  /*font-weight: 600;*/
+}
+
+.container-profile .total {
+  padding-top: .3rem;
+  font-size: .34rem;
+}
+
+.container-profile .nums {
+  padding: .05rem .1rem;
+  color: #fff;
+  background: #12dbd1;
+}
+
+.container-profile .tip-profile {
+  padding: .2rem .2rem;
+  background: #fff;
+  border-radius: 5px;
+}
+
+
+.container-profile .tip-profile p {
+  font-size: .34rem;
+  /*font-weight: 300;*/
+}
+
+.container-profile .hero {
+  color: #12dbd1;
+}
+
+.tab-main .tab-item.active {
+  color: #000;
+  font-weight: 400;
+}
+
+/*.container-profile .small {
+  padding: .02rem .2rem;
+  font-size: .18rem;
+  background: #fff;
+}*/
+
+.float {
+  position: fixed;
+  left: 0; right: 0; top: 0; bottom: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.float .banner-didi {
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  z-index: 9;
+  width: 6.43rem;
+  height: 10.27rem;
+  margin: auto;
+}
+
+.orgs {
+  margin: .1rem 0;
+  font-size: .28rem;
+  color: #666;
+}
